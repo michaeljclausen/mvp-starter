@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  MusicTodo.ly
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  For people who love music, finding more music to love. 
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  MusicTodo.ly allows users to make a todo list of music they've been wanting to check out.   Heard someone talking about some new artist?  Add them to your todo list.  Give a thumbs up or down on music you've listened to.  Get recommendations from 3rd party APIs to add more to your todo List.   Never forget to find great music.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  When I sit down to listen to music I often go blank when thinking of new tunes to check out.  I get recommentdations all the time, but rarely remember them later.  This app will help me keep track of that music.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  A simple todo list will help me remember what I need to check out.  API funtionality will help me populate the list even faster if I'm looking for something new when my list goes empty.  
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  "Check them out yet?  Yeah I did!  Thanks for the great recommendation"
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  Just add a few items to your list.  Need help getting started from there?  Get some recommndations.  
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "I've always wanted to expand my musical tastes.  Now I can keep track of my recommendations.  It's super!"
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  Go to musictodo.ly and start your list today!
