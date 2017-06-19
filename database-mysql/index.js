@@ -3,18 +3,20 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'FILL_ME_IN',
-  database : 'test'
+  password : 'plantlife',
+  database : 'musictodoly'
 });
 
-var selectAll = function(callback) {
-  connection.query('SELECT * FROM items', function(err, results, fields) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, results);
-    }
+var selectAllUsers = function(callback) {
+  return new Promise((resolve, reject) => {
+    connection.query('SELECT * FROM users', function(err, results, fields) {
+      if(err) {
+        reject(err, null);
+      } else {
+        resolve(null, results);
+      }
+    });
   });
 };
 
-module.exports.selectAll = selectAll;
+module.exports.selectAllUsers = selectAllUsers;
