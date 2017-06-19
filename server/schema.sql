@@ -33,6 +33,11 @@ INSERT INTO users (user_name, first_name, last_name) VALUES ("beth", "Beth", "Jo
 
 INSERT INTO users (user_name, first_name, last_name) VALUES ("Fredx", "Fred", "Zirdung");
 
+INSERT INTO list_items (user_id, artist) VALUES (1, "Cloud Nothings");
+INSERT INTO list_items (user_id, artist) VALUES ((SELECT user_id FROM users WHERE user_name = "michaeljclausen"), "Tame Impala");
+
+INSERT INTO list_items (user_id, artist, song) VALUES ((SELECT user_id FROM users WHERE user_name = "Fredx"), "Jamiroqui", "Virtual Insanity");
+
 /*  Execute this file from the command line by typing:
  *    mysql -u root < server/schema.sql
  *  to create the database and the tables.*/
