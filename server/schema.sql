@@ -21,7 +21,8 @@ CREATE TABLE IF NOT EXISTS list_items (
   artist varchar(30) NOT NULL,
   listened boolean,
   liked boolean,
-  song varchar(30)
+  song varchar(30),
+  album varchar(30)
 );
 
 
@@ -36,7 +37,10 @@ INSERT INTO users (user_name, first_name, last_name) VALUES ("Fredx", "Fred", "Z
 INSERT INTO list_items (user_id, artist) VALUES (1, "Cloud Nothings");
 INSERT INTO list_items (user_id, artist) VALUES ((SELECT user_id FROM users WHERE user_name = "michaeljclausen"), "Tame Impala");
 
-INSERT INTO list_items (user_id, artist, song) VALUES ((SELECT user_id FROM users WHERE user_name = "Fredx"), "Jamiroqui", "Virtual Insanity");
+INSERT INTO list_items (user_id, artist, song) VALUES ((SELECT user_id FROM users WHERE user_name = "Fredx"), "Jamiroquai", "Virtual Insanity");
+INSERT INTO list_items (user_id, artist, song) VALUES ((SELECT user_id FROM users WHERE user_name = "Fredx"), "Jamiroquai", "Canned Heat");
+INSERT INTO list_items (user_id, artist, album, listened, liked) VALUES ((SELECT user_id FROM users WHERE user_name = "Fredx"), "Jamiroquai", "Travelling Without Moving", true, true);
+INSERT INTO list_items (user_id, artist, album, listened, liked) VALUES ((SELECT user_id FROM users WHERE user_name = "Fredx"), "Jamiroquai", "Dynamite", true, false);
 
 /*  Execute this file from the command line by typing:
  *    mysql -u root < server/schema.sql
