@@ -18,6 +18,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/users')
     .then(users => {
+      console.log(users);
       setState({
         users: users
       })

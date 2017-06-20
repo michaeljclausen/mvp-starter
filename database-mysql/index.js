@@ -7,13 +7,16 @@ var connection = mysql.createConnection({
   database : 'musictodoly'
 });
 
+console.log('DB CONNECTED');
+
 var selectAllUsers = function(callback) {
   return new Promise((resolve, reject) => {
     connection.query('SELECT * FROM users', function(err, results, fields) {
-      if(err) {
-        reject(err, null);
+      if (err) {
+        reject(err);
       } else {
-        resolve(null, results);
+        //console.log('in selectAllUsers', results);
+        resolve(results);
       }
     });
   });

@@ -10,12 +10,19 @@ var app = express();
 app.use(express.static(__dirname + '/../react-client/dist'));
 
 app.get('/users', function (req, res) {
-  db.selectAllUsers(function(err, data) {
-    if(err) {
-      res.sendStatus(500);
-    } else {
-      res.json(data);
-    }
+  // db.selectAllUsers(function(err, data) {
+  //   console.log(data);
+  //   if(err) {
+  //     res.sendStatus(500);
+  //   } else {
+  //     res.json(data);
+  //   }
+  // });
+  //console.log(db.selectAllUsers(), 'db');
+  db.selectAllUsers()
+  .then(users => {
+    console.log(users);
+    res.status(200).send(users);
   });
 });
 
