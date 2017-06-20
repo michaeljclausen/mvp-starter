@@ -18,9 +18,11 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/users')
     .then(users => {
-      console.log(users);
-      setState({
-        users: users
+      let userArray = users.data.map(user => {
+        return user.user_name;
+      });
+      this.setState({
+        users: userArray
       })
     })
   }
