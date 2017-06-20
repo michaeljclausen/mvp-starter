@@ -25,12 +25,10 @@ app.get('/user', (req, res) => {
 
 app.get(`/update`, (req, res) => {
   console.log('in /update', req.query);
-  
-  // db.selectAllForUser(req.query.username)
-  // .then(data => {
-  //   console.log(data);
-  //   res.status(200).send(data);
-  // });
+  db.updateListenedTo(req.query.itemid)
+  .then(() => {
+    res.status(200).end();
+  })
 })
 
 app.listen(3000, function() {

@@ -42,7 +42,7 @@ class App extends React.Component {
     //console.log(`I need to update the record for ${item.firstName}, ${item}`);
     axios.get(`/update?itemid=${item.list_item_id}`)
     .then(data => {
-      //something else
+      console.log(data);
     })
   }
 

@@ -33,5 +33,18 @@ var selectAllForUser = function(user) {
   })
 }
 
+var updateListenedTo = function(item) {
+  return new Promise((resolve, reject) => {
+    connection.query(`UPDATE list_items SET listened = 1 WHERE list_item_id = ${item}`, (err, results, fields) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(results);
+      }
+    });
+  })
+}
+
 module.exports.selectAllUsers = selectAllUsers;
 module.exports.selectAllForUser = selectAllForUser;
+module.exports.updateListenedTo = updateListenedTo;
