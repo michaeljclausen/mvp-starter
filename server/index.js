@@ -27,15 +27,12 @@ app.get('/apiSearch', (req, res) => {
   db.getLikedArtists(req.query.username)
   .then(data => { 
     let artists = data.map(item => item.artist.replace(' ','+')).join('%2C');
-    let query = `https://tastedive.com/api/similar?q=${artists}&type=music&limit=5`
-    //console.log(query);
-    //https://tastedive.com/api/similar?q=cloud+nothings%2Ctame+impala&type=music&limit=5&verbose=1
+    let query = `https://tastedive.com/api/similar?q=${artists}&type=music&limit=5&k=273726-musictod-5U782O59`
     return axios.get(query)
   })
   .then(results => {
-    //results = JSON.parse(results);
-    //let recommendedArtists = results.data.results
-    console.log(results);
+    let recommendedArtists = results.data.Similar.Results.map(item => item.Name);
+    recommendedArtists.forEach(artist => db.addArtist(artist, req.query.username))
   })
 })
 
