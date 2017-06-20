@@ -28,7 +28,13 @@ class App extends React.Component {
   }
 
   selectUser(user) {
-    console.log(`Hi I would like to pick ${user}.`)
+    console.log(`Hi I would like to pick ${user.value}.`)
+    axios.get(`/user?username=${user.value}`)
+    .then(data => {
+      this.setState({
+        items: data.data
+      })
+    });
   }
 
   render () {
