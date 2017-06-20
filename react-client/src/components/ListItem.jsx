@@ -24,7 +24,7 @@ const ListItem = (props) => {
   } else {
     return (
       <div>
-        <div>{props.item.artist} -- {props.item.album} -- {props.item.song} -- <button>listened</button></div>
+        <div>{props.item.artist} -- {props.item.album} -- {props.item.song} -- <button onClick={()=>{props.updateListenedTo(props.item)}}>listened</button></div>
       </div>
     )
   }

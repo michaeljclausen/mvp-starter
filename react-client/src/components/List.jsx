@@ -6,7 +6,7 @@ const List = (props) => (
     <h4> **************** </h4>
     There are { props.items.length } items.
     <ul>
-      {props.items.map((item, i) => <ListItem item={item} key={i} />)}
+      {props.items.map((item, i) => <ListItem item={item} key={i} updateListenedTo={props.updateListenedTo} />)}
     </ul>
   </div>
 )

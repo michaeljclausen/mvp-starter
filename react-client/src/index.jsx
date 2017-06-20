@@ -37,12 +37,21 @@ class App extends React.Component {
     });
   }
 
+  updateListenedTo(item) {
+    console.log(item);
+    //console.log(`I need to update the record for ${item.firstName}, ${item}`);
+    axios.get(`/update?itemid=${item.list_item_id}`)
+    .then(data => {
+      //something else
+    })
+  }
+
   render () {
     return (<div>
       <h1>Welcome to MusicTodo.ly</h1>
       <AddUser />
       <SelectUser users={this.state.users} onClick={this.selectUser.bind(this)} />
-      <List items={this.state.items}/>
+      <List items={this.state.items} updateListenedTo={this.updateListenedTo.bind(this)}/>
     </div>)
   }
 }
