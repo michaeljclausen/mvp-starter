@@ -1,6 +1,7 @@
 import React from 'react';
 import ListItem from './ListItem.jsx';
 import AddNewArtist from './AddNewArtist.jsx';
+import SuggestNewArtists from './SuggestNewArtists.jsx';
 
 const List = (props) => {
   if (props.selectedUser) {
@@ -12,6 +13,7 @@ const List = (props) => {
           {props.items.map((item, i) => <ListItem item={item} key={i} updateListenedTo={props.updateListenedTo} updateLiked={props.updateLiked}/>)}
         </ul>
         <AddNewArtist user={props.selectedUser} selectUser={props.selectUser}/>
+        <SuggestNewArtists apiSearch={props.apiSearch}/>
       </div>
     )
   } else {

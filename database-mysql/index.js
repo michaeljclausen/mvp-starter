@@ -69,8 +69,35 @@ var addArtist = function(artist, username) {
   })
 }
 
+var getLikedArtists = function(username) {
+  let query = `SELECT DISTINCT artist 
+                FROM list_items 
+                WHERE user_id = (SELECT user_id FROM users where user_name = "${username}")
+                AND liked = true;`;
+  return new Promise((resolve, reject) => {
+    connection.query(query, (err, results, fields) => {
+      if (err) {
+        reject(err);
+      } else {
+        //console.log('RESULTS FROM GET LIKED ARTISTS', results);
+        resolve(results);
+      }
+    });
+  })
+}
+
 module.exports.selectAllUsers = selectAllUsers;
 module.exports.selectAllForUser = selectAllForUser;
 module.exports.updateListenedTo = updateListenedTo;
 module.exports.updateLiked = updateLiked;
 module.exports.addArtist = addArtist;
+module.exports.getLikedArtists = getLikedArtists;
+
+
+
+
+
+
+
+
+

@@ -47,6 +47,15 @@ class App extends React.Component {
     })
   }
 
+  apiSearch() {
+    console.log('API SEARCH');
+     axios.get(`/apiSearch?username=${this.state.selectedUser.value}`)
+     .then(data => {
+      console.log(data);
+       this.props.selectUser(this.props.user.value);
+    })
+  }
+
   updateLiked(item, result) {
     console.log(item, result);
     axios.get(`/update?itemid=${item.list_item_id}&liked=${result}`)
@@ -64,7 +73,8 @@ class App extends React.Component {
       updateListenedTo={this.updateListenedTo.bind(this)} 
       selectedUser={this.state.selectedUser}
       selectUser={this.selectUser.bind(this)} 
-      updateLiked={this.updateLiked.bind(this)}/>
+      updateLiked={this.updateLiked.bind(this)}
+      apiSearch={this.apiSearch.bind(this)}/>
     </div>)
   }
 }

@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var axios = require('axios');
 
 var db = require('../database-mysql');
 var app = express();
@@ -20,6 +21,22 @@ app.get('/user', (req, res) => {
   .then(data => {
     res.status(200).send(data);
   });
+})
+
+app.get('/apiSearch', (req, res) => {
+  db.getLikedArtists(req.query.username)
+  .then(data => { 
+    let artists = data.map(item => item.artist.replace(' ','+')).join('%2C');
+    let query = `https://tastedive.com/api/similar?q=${artists}&type=music&limit=5`
+    //console.log(query);
+    //https://tastedive.com/api/similar?q=cloud+nothings%2Ctame+impala&type=music&limit=5&verbose=1
+    return axios.get(query)
+  })
+  .then(results => {
+    //results = JSON.parse(results);
+    //let recommendedArtists = results.data.results
+    console.log(results);
+  })
 })
 
 app.get('/add', (req, res) => {
