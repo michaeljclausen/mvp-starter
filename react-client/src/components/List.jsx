@@ -1,5 +1,6 @@
 import React from 'react';
 import ListItem from './ListItem.jsx';
+import AddNewArtist from './AddNewArtist.jsx';
 
 const List = (props) => {
   if (props.selectedUser) {
@@ -10,6 +11,7 @@ const List = (props) => {
         <ul>
           {props.items.map((item, i) => <ListItem item={item} key={i} updateListenedTo={props.updateListenedTo} updateLiked={props.updateLiked}/>)}
         </ul>
+        <AddNewArtist user={props.selectedUser}/>
       </div>
     )
   } else {

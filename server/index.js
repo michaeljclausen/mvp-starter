@@ -22,6 +22,14 @@ app.get('/user', (req, res) => {
   });
 })
 
+app.get('/add', (req, res) => {
+  console.log('in /add', req.query);
+  db.addArtist(req.query.artist, req.query.username)
+  .then(data => {
+    res.status(200).send(data);
+  });
+})
+
 app.get(`/update`, (req, res) => {
   console.log('in /update', req.query);
   if (req.query.listened) {

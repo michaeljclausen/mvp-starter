@@ -62,7 +62,10 @@ class App extends React.Component {
     return (<div>
       <h1>Welcome to MusicTodo.ly</h1>
       <SelectUser users={this.state.users} onClick={this.selectUser.bind(this)} selectedUser={this.state.selectedUser}/>
-      <List items={this.state.items} updateListenedTo={this.updateListenedTo.bind(this)} selectedUser={this.state.selectedUser} updateLiked={this.updateLiked.bind(this)}/>
+      <List items={this.state.items} 
+      updateListenedTo={this.updateListenedTo.bind(this)} 
+      selectedUser={this.state.selectedUser} 
+      updateLiked={this.updateLiked.bind(this)}/>
     </div>)
   }
 }
