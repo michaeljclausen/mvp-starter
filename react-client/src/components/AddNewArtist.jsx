@@ -15,6 +15,7 @@ class AddNewArtist extends React.Component {
     axios.get(`/add?username=${this.props.user.value}&artist=${this.state.artist}`)
     .then(data => {
       console.log(data);
+      this.props.selectUser(this.props.user.value);
     })
   }
 

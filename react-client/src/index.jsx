@@ -40,8 +40,6 @@ class App extends React.Component {
   }
 
   updateListenedTo(item) {
-    console.log(item);
-    //console.log(`I need to update the record for ${item.firstName}, ${item}`);
     axios.get(`/update?itemid=${item.list_item_id}&listened=true`)
     .then(data => {
       console.log(data);
@@ -62,9 +60,10 @@ class App extends React.Component {
     return (<div>
       <h1>Welcome to MusicTodo.ly</h1>
       <SelectUser users={this.state.users} onClick={this.selectUser.bind(this)} selectedUser={this.state.selectedUser}/>
-      <List items={this.state.items} 
+      <List items={this.state.items}
       updateListenedTo={this.updateListenedTo.bind(this)} 
-      selectedUser={this.state.selectedUser} 
+      selectedUser={this.state.selectedUser}
+      selectUser={this.selectUser.bind(this)} 
       updateLiked={this.updateLiked.bind(this)}/>
     </div>)
   }
