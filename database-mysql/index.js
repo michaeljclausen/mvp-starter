@@ -46,7 +46,7 @@ var updateListenedTo = function(item) {
 }
 
 var updateLiked = function(item, liked) {
-  liked = liked === true ? 1 : 0;
+  //liked = liked === true ? 1 : 0;
   return new Promise((resolve, reject) => {
     connection.query(`UPDATE list_items SET liked = ${liked} WHERE list_item_id = ${item}`, (err, results, fields) => {
       if (err) {

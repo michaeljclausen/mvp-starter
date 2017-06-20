@@ -14,7 +14,7 @@ const ListItem = (props) => {
     if (props.item.liked === null) {
       return (
         <div>
-          <div style={decisionStyle}>{props.item.artist} -- {props.item.album} -- {props.item.song} -- Like it? 
+          <div style={decisionStyle}>{props.item.artist} -- {props.item.album} -- {props.item.song} -- Did you like it? 
           <button onClick={() =>{props.updateLiked(props.item, true)}}>yes</button><button onClick={() =>{props.updateLiked(props.item, false)}}>no</button></div>
         </div>
       )

@@ -11,7 +11,8 @@ class App extends React.Component {
     super(props);
     this.state = { 
       items: [],
-      users: []
+      users: [],
+      selectedUser: null
     }
   }
 
@@ -32,7 +33,8 @@ class App extends React.Component {
     axios.get(`/user?username=${user.value}`)
     .then(data => {
       this.setState({
-        items: data.data
+        items: data.data,
+        selectedUser: user
       })
     });
   }
@@ -59,9 +61,8 @@ class App extends React.Component {
   render () {
     return (<div>
       <h1>Welcome to MusicTodo.ly</h1>
-      <AddUser />
-      <SelectUser users={this.state.users} onClick={this.selectUser.bind(this)} />
-      <List items={this.state.items} updateListenedTo={this.updateListenedTo.bind(this)} updateLiked={this.updateLiked.bind(this)}/>
+      <SelectUser users={this.state.users} onClick={this.selectUser.bind(this)} selectedUser={this.state.selectedUser}/>
+      <List items={this.state.items} updateListenedTo={this.updateListenedTo.bind(this)} selectedUser={this.state.selectedUser} updateLiked={this.updateLiked.bind(this)}/>
     </div>)
   }
 }
