@@ -40,9 +40,19 @@ class App extends React.Component {
   updateListenedTo(item) {
     console.log(item);
     //console.log(`I need to update the record for ${item.firstName}, ${item}`);
-    axios.get(`/update?itemid=${item.list_item_id}`)
+    axios.get(`/update?itemid=${item.list_item_id}&listened=true`)
     .then(data => {
       console.log(data);
+      this.selectUser(item.user_name);
+    })
+  }
+
+  updateLiked(item, result) {
+    console.log(item, result);
+    axios.get(`/update?itemid=${item.list_item_id}&liked=${result}`)
+    .then(data => {
+      console.log(data);
+      this.selectUser(item.user_name);
     })
   }
 
@@ -51,7 +61,7 @@ class App extends React.Component {
       <h1>Welcome to MusicTodo.ly</h1>
       <AddUser />
       <SelectUser users={this.state.users} onClick={this.selectUser.bind(this)} />
-      <List items={this.state.items} updateListenedTo={this.updateListenedTo.bind(this)}/>
+      <List items={this.state.items} updateListenedTo={this.updateListenedTo.bind(this)} updateLiked={this.updateLiked.bind(this)}/>
     </div>)
   }
 }

@@ -15,20 +15,27 @@ app.get('/users', function (req, res) {
 });
 
 app.get('/user', (req, res) => {
-  console.log('in /user', req.query);
+  //console.log('in /user', req.query);
   db.selectAllForUser(req.query.username)
   .then(data => {
-    console.log(data);
     res.status(200).send(data);
   });
 })
 
 app.get(`/update`, (req, res) => {
   console.log('in /update', req.query);
-  db.updateListenedTo(req.query.itemid)
-  .then(() => {
-    res.status(200).end();
-  })
+  if (req.query.listened) {
+    console.log('in updateListenedTo', req.query);
+    db.updateListenedTo(req.query.itemid)
+    .then(() => {
+      res.status(200).end();
+    })
+  } else if (req.query.liked) {
+    db.updateLiked(req.query.itemid, req.query.liked)
+    .then(() => {
+      res.status(200).end();
+    })
+  } 
 })
 
 app.listen(3000, function() {

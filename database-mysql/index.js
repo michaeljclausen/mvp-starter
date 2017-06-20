@@ -45,6 +45,20 @@ var updateListenedTo = function(item) {
   })
 }
 
+var updateLiked = function(item, liked) {
+  liked = liked === true ? 1 : 0;
+  return new Promise((resolve, reject) => {
+    connection.query(`UPDATE list_items SET liked = ${liked} WHERE list_item_id = ${item}`, (err, results, fields) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(results);
+      }
+    });
+  })
+}
+
 module.exports.selectAllUsers = selectAllUsers;
 module.exports.selectAllForUser = selectAllForUser;
 module.exports.updateListenedTo = updateListenedTo;
+module.exports.updateLiked = updateLiked;
